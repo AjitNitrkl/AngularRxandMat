@@ -1,0 +1,15 @@
+<div [formGroup]="checkboxesForm">
+    <div *ngFor="let item of checkboxes; let i =index">
+        <mat-checkbox
+          color="primary"
+          [matTooltip]="item.tooltip ? item.tooltip : ''"
+          matTooltipShowDelay="1000"
+          (change)="onChangeCheckbox()"
+          [formControlName]="item.name"
+          *ngIf="checkboxesForm.controls[item.name]">
+          <span>{{ item.label}}</span>
+        </mat-checkbox>
+      
+      </div>
+</div>
+

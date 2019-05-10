@@ -1,0 +1,50 @@
+<mat-sidenav #start (click)="start.close()">
+    <mat-nav-list>
+
+        <a *ngIf= "authService.isLoggedOut()" mat-list-item routerLink="register">
+            <mat-icon>person_add</mat-icon>
+            <span>Register</span>
+        </a>
+       
+        <a  *ngIf= "authService.isLoggedOut()" mat-list-item routerLink="login">
+            <mat-icon>account_circle</mat-icon>
+            <span>Login</span>
+        </a>
+    
+    
+        <a *ngIf= "authService.isLoggedIn()" mat-list-item   >
+                <mat-icon>account_circle</mat-icon>
+                <span (click)="logout()">Logout</span>
+            </a>
+
+        <a *ngIf= "authService.isLoggedIn()" mat-list-item routerLink="/courses">
+            <mat-icon>library_books</mat-icon>
+            <span>Courses</span>
+        </a>
+
+        <a *ngIf= "authService.isLoggedIn()" mat-list-item routerLink="/users">
+            <mat-icon>person</mat-icon>
+            <span>Applicants</span>
+        </a>
+
+    </mat-nav-list>
+
+</mat-sidenav>
+
+<mat-toolbar color="primary">
+        <button mat-icon-button (click)="start.open('mouse')">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <div fxFlex fxLayout fxLayoutAlign="flex-end">
+            <ul style="list-style-type:none" fxLayout fxLayoutGap="20px" class="navigation-items">
+              <li><a *ngIf= "authService.isLoggedOut()"><mat-icon class="icon">dashboard</mat-icon><span  (click)="signUp()" class="label">Register</span></a></li>
+              <li *ngIf= "authService.isLoggedOut()"><a > <mat-icon class="icon">input</mat-icon> <span  (click)="login('','')" class="label">Login</span></a></li>
+              <li><a *ngIf= "authService.isLoggedIn()" routerLink="/courses"><mat-icon class="icon">assignment</mat-icon><span class="label">Courses</span></a></li>
+              <li><a *ngIf= "authService.isLoggedIn()" routerLink="/applicants"><mat-icon class="icon">input</mat-icon><span class="label">Applicants</span></a></li>
+             <li  *ngIf= "authService.isLoggedIn()" (click)="logout()">
+                    <a >Logout</a>
+                </li>
+           
+            </ul>
+          </div>
+    </mat-toolbar>

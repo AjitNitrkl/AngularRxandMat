@@ -1,0 +1,115 @@
+
+<div class="row" style="background-color:rgb(205, 223, 230)">
+<div class="col-9">
+   
+        <applicant-filter #child [searchData]="filterData"></applicant-filter>
+    <!-- <div *ngIf="searchFlag$ | async">
+        <applicant-filter  [searchData]="filterData"></applicant-filter>
+    </div> -->
+</div>
+<div class="col sidebar-container jumbotron rounded" style="background-color:rgb(109, 133, 139)">
+    <div fxLayout="row" fxLayoutAlign="center center" >
+        <form  (ngSubmit)="onSubmit()"
+         #f="ngForm">
+        
+            <h4>Search Applicant</h4>
+           
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name"
+                     required [(ngModel)]="applicant.name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" [(ngModel)]="applicant.email"
+                     name="email">
+                </div>
+                <div class="form-group">
+                    <label for="status"> Status</label>
+                    <select class="form-control" id="status" required [(ngModel)]="applicant.status" 
+                    name="status">
+                     <option *ngFor="let status of status" [value]="status">{{status}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button  mat-raised-button color="primary"    [disabled]="f.invalid" >Submit</button>
+                </div> 
+        </form>
+        </div>
+        <div >
+               <sidebar>
+
+                    <sidebar-checkbox  *ngFor="let item of filters"
+                    [checkboxesDefault]="item.checkboxes"
+                    [name]="item.name"
+                    [onValueChange]="onChangeFilters"
+                    [title]="item.title">
+                    </sidebar-checkbox>
+
+                    <sidebar-datepicker>
+                     </sidebar-datepicker>
+
+               </sidebar>
+        </div>
+</div>
+
+
+</div>
+
+
+
+
+<!--    col-xs-10 col-sm-8 col-md-6 col-lg-4 col-xl-3-->
+ <!-- <section>
+    <div class="container-fluid">
+      <div class="row no-gutters ">
+        <div class="col-9 ">
+          <div *ngIf="searchFlag$ | async">
+              <applicant-filter [searchData]="filterData"></applicant-filter>
+          </div>
+
+        </div>
+        
+       <div class="col sidebar-container">
+
+       </div>
+        <div class="col-3 ">
+          <div class="sidebar-nav-fixed pull-right  affix">
+              <div fxLayout="row" fxLayoutAlign="end stretch" >
+                  <form  (ngSubmit)="onSubmit()"
+                   #f="ngForm">
+                  
+                      <h4>Search Applicant</h4>
+                     
+                          <div class="form-group">
+                              <label for="name">Name</label>
+                              <input type="text" class="form-control" id="name"
+                               required [(ngModel)]="applicant.name" name="name">
+                          </div>
+                          <div class="form-group">
+                              <label for="email">Email</label>
+                              <input type="text" class="form-control" id="email" [(ngModel)]="applicant.email"
+                               name="email">
+                          </div>
+                          <div class="form-group">
+                              <label for="status"> Status</label>
+                              <select class="form-control" id="status" required [(ngModel)]="applicant.status" 
+                              name="status">
+                               <option *ngFor="let status of status" [value]="status">{{status}}</option>
+                              </select>
+                          </div>
+
+                          <button type="submit" class="btn btn-primary" >Submit</button>
+                         
+                  </form>
+                  </div>
+          </div>
+        </div>
+               
+        </div>
+      </div>
+              
+ </section>  -->
+
+
+         

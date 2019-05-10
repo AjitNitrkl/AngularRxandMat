@@ -1,0 +1,78 @@
+
+<div class="col-md-12 jumbotron">
+    <section>
+        <mat-progress-bar
+        [color]="primary" 
+        [mode]="determinate"
+        [value]="value">
+    
+        </mat-progress-bar>
+      </section>
+<mat-horizontal-stepper [linear] = "isLinear" #stepper>
+    <mat-step [stepControl] = "firstFormGroup">
+       <form [formGroup] = "firstFormGroup"  #formone="ngForm" >
+          <ng-template matStepLabel>Enter Applicant Details</ng-template>
+          <div fxLayoutGap="20px">
+              
+              <mat-form-field>
+                  <input matInput placeholder = " First Name"  formControlName = "fname" required>
+               </mat-form-field>
+       
+              <mat-form-field>
+                <input matInput placeholder = " Last Name" formControlName = "lname" required>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder = " SSN" formControlName = "ssn" required>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder = " Email"   formControlName = "email" required>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder = " Mobile"  formControlName = "mobile" required>
+              </mat-form-field>
+           </div>
+
+          <div>
+            <button mat-button matStepperNext (click)="nextAction()">Next</button>
+          </div>
+       </form>
+    </mat-step>
+    <mat-step [stepControl] = "secondFormGroup">
+       <form [formGroup] = "secondFormGroup">
+          <ng-template matStepLabel>Enter Applicant address</ng-template>
+          <div fxLayoutGap="20px">
+              <mat-form-field>
+                  <input matInput placeholder = "Address 1" formControlName = "secondCtrl" required>
+                </mat-form-field>
+      
+                <mat-form-field>
+                    <input matInput placeholder = "Address 2" formControlName = "secondCtrl" required>
+                  </mat-form-field>
+      
+                  <mat-form-field>
+                      <input matInput placeholder = "State" formControlName = "secondCtrl" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder = "City" formControlName = "secondCtrl" required>
+                      </mat-form-field>
+                      <mat-form-field>
+                          <input matInput placeholder = "Zip" formControlName = "secondCtrl" required>
+                        </mat-form-field>
+          </div>
+       <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext (click)="nextAction()">Next</button>
+          </div>
+       </form>
+    </mat-step>
+    <mat-step>
+       <ng-template matStepLabel >Done</ng-template>
+          Details taken.
+       <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click) = "stepper.reset()">Reset</button>
+          <button mat-button (click) = "submit()">Submit</button>
+       </div>
+    </mat-step>
+ </mat-horizontal-stepper>
+</div>

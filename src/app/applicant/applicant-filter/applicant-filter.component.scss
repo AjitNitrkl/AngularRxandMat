@@ -1,0 +1,27 @@
+
+table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 500px;
+}
+ 
+th.mat-header-cell {
+    text-align: left;
+    max-width: 300px;
+
+}
+
+.mat-header-cell{
+    background-color: rgb(189, 190, 164);
+    
+    
+}
+
+
+.mat-row:nth-child(odd){
+    background-color: red;
+}
+.mat-row:nth-child(even){
+    background-color: gold;
+}

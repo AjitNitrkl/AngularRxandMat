@@ -1,0 +1,50 @@
+<!-- <button (click)="clickMe()">Click</button> -->
+
+<div>
+    <mat-table   *ngIf="dataSource" [dataSource]="dataSource">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.name}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> E-Mail </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.phone}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef> User </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.username}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="iconUrl">
+        <mat-header-cell *matHeaderCellDef> Profile </mat-header-cell>
+        <mat-cell *matCellDef="let user"> <img class="profile-pic" alt="Avatar" [src]="user.iconUrl"/></mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+        <mat-cell *matCellDef="let user">
+          <button mat-button class="mat-raised-button mat-accent"
+          (click)="editUser(user)">
+                 EDIT
+        </button>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="deleteAction">
+        <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+        <mat-cell *matCellDef="let user">
+            <mat-icon  (click)="deleteUser(user)" class="icon">delete</mat-icon>
+          <!-- <i class="material-icons" (click)="deleteUser(user)">
+              delete
+        </i> -->
+        </mat-cell>
+    </ng-container> 
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onClickRow(row)"></mat-row>
+    </mat-table>
+  </div>

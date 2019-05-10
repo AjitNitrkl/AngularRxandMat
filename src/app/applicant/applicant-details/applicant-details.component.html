@@ -1,0 +1,35 @@
+
+
+<mat-card>
+
+        <mat-card-header>
+    
+            <mat-card-title>Application Info Details</mat-card-title>
+    
+        </mat-card-header>
+        <section fxLayout="column" fxLayoutAlign="center center" >
+        <img class="profile-pic" mat-card-image [src]="imageSrc"  >
+    </section>
+    
+        <mat-card-content>
+            <textarea>{{applicantName}}</textarea>
+            <textarea>{{applicantEmail}}</textarea>
+
+        </mat-card-content>
+    
+        <mat-card-actions class="course-actions">
+    
+            <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/applicants']">
+                CLOSE
+            </button>
+    
+            <button mat-button class="mat-raised-button mat-accent"
+                    (click)="editCourse(course)">
+                EDIT
+            </button>
+    
+        </mat-card-actions>
+    
+    </mat-card>
+    
+    

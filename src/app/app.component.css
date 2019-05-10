@@ -1,0 +1,25 @@
+
+body {
+    margin: 0;
+}
+
+main {
+    margin: 30px;
+}
+
+.label {
+    display: inline-block;
+    line-height: 30px;
+    margin: 0;
+    width: 85%;
+  }
+
+  .icon {
+    display: inline-block;
+    height: 30px;
+    margin: 0 auto;
+    padding-right: 5px;
+    text-align: center;
+    vertical-align: middle;
+    width: 15%;
+  }

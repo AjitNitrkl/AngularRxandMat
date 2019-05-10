@@ -1,0 +1,56 @@
+
+<h2 mat-dialog-title>User Info</h2>
+
+
+<mat-dialog-content [formGroup]="form">
+
+    <mat-form-field>
+        <input matInput
+                placeholder="Name"
+               formControlName="name">
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <input matInput
+                placeholder="Phone"
+               formControlName="phone">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput
+                placeholder="Email"
+               formControlName="email">
+    </mat-form-field>
+   
+    <mat-form-field>
+
+        <input matInput [matDatepicker]="myDatepicker" #searchInput
+           placeholder="Modified Date" formControlName="releasedAt">
+
+        <mat-datepicker-toggle matSuffix
+                               [for]="myDatepicker">
+
+        </mat-datepicker-toggle>
+
+        <mat-datepicker #myDatepicker></mat-datepicker>
+
+    </mat-form-field>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+    <button class="mat-raised-button"
+            (click)="close()">
+        Close
+    </button>
+
+    <button class="mat-raised-button mat-primary" #saveButton (click)="save()">
+        Save
+    </button>
+
+</mat-dialog-actions>
+
+
